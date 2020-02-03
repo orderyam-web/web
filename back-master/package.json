@@ -1,0 +1,32 @@
+{
+  "name": "orderyam",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+<<<<<<< HEAD
+   
+=======
+    "aws-sdk": "^2.610.0",
+>>>>>>> c182e5676da0137a3a97de1c656769e3224fd892
+    "body-parser": "^1.19.0",
+    "build": "webpack",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "forever": "^2.0.0",
+    "mysql": "^2.18.0",
+    "pm2": "^4.2.3",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "request": "^2.88.0",
+    "webpack": "^4.41.5",
+    "yarn": "^1.21.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
