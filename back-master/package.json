@@ -9,11 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-   
-=======
     "aws-sdk": "^2.610.0",
->>>>>>> c182e5676da0137a3a97de1c656769e3224fd892
     "body-parser": "^1.19.0",
     "build": "webpack",
     "cors": "^2.8.5",
