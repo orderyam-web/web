@@ -44,10 +44,14 @@
 .kakao {
     margin-left: 13%;
     margin-top: 5%;
+    border-width: 5px;
+    border-color: blue;
 }
 .card {
     margin-left: 10%;
     margin-top: 5%;
+    border-width: 5px;
+    border-color: blue;
 }
 .pay {
     width: 80%;

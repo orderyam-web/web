@@ -13,9 +13,7 @@ export default class Paymentpage extends Component{
     render(){
         return(
             <div className={checkstyle.pay}>
-                <Link to='/receipt'>
-                <div className={checkstyle.text3} onClick={this.props.savecellnum}>결제하기</div>
-                </Link>
+                <div className={checkstyle.text3} onClick={this.props.onClick}>결제하기</div>
                     
                
             </div>

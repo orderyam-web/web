@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import './global.css';
 import * as serviceWorker from '../serviceWorker';
+import { connect } from 'react-redux';
 
 import checkstyle from './OrderDetail.module.css';
 import DetailAppBar from './DetailAppBar';
@@ -10,7 +11,7 @@ import OrderBottomButton from './OrderBottomButton';
 import kakao from './kakao.png';
 import card from './card.png';
 import Paymentpage from './Paymentpage';
-export default class OrderDetail extends Component{
+class OrderDetail extends Component{
     constructor(props){
         super(props);
     }
@@ -20,6 +21,7 @@ export default class OrderDetail extends Component{
         opacity : 1.0,
         cellnum : 0,
         num :0,
+        paymentStyle : '',
     }
     savecellnum(){
         var cellnum = document.getElementById("cellnum").value;
@@ -37,7 +39,32 @@ export default class OrderDetail extends Component{
         
     }
 
+    kakaoHandleClick = () => {
+        // do something meaningful, Promises, if/else, whatever, and then
+        window.location.assign('http://localhost:3001/kakaopay');
+    }
+
+    inicisHandleClick = () => {
+        // do something meaningful, Promises, if/else, whatever, and then
+        window.location.assign('http://localhost:8080/local_inicis/INIStdPayRequest.jsp');
+    }
     
+    handlePaymentStyle = (value) => {
+        this.setState({
+            paymentStyle : value
+        })
+    }
+    handlePaymentClick = () => {
+        if (this.state.paymentStyle == 'kakao'){
+            this.kakaoHandleClick()
+        }
+        else if (this.state.paymentStyle == 'inicis'){
+            this.inicisHandleClick()
+        }
+        else{
+            alert('error!')
+        }
+    }
        
         
     render(){
@@ -62,12 +89,20 @@ export default class OrderDetail extends Component{
 
                     </div>
                     <div className={checkstyle.text2}>결제수단 선택</div>
-                    <img src={kakao}className={checkstyle.kakao} ></img>
-                    <img src={card} className={checkstyle.card} ></img>
-                    <Paymentpage></Paymentpage>
+                    <img src={kakao}className={checkstyle.kakao} style={this.state.paymentStyle == 'kakao' ? {borderStyle : 'solid'} : {borderStyle : 'none'}} onClick={() => this.handlePaymentStyle('kakao')}></img>
+                    <img src={card} className={checkstyle.card} style={this.state.paymentStyle == 'inicis' ? {borderStyle : 'solid'} : {borderStyle : 'none'}} onClick={() => this.handlePaymentStyle('inicis')}></img>
+                    <Paymentpage onClick = {this.handlePaymentClick}></Paymentpage>
                     </div>
             
             </Fragment>
         )
     }
 }
+
+const mapStateToProps = ({ menuList}) => ({  //2
+    menulist: menuList.list,
+}) ;
+
+export default connect ( // 스토어와 연결
+    mapStateToProps,
+)(OrderDetail) ;

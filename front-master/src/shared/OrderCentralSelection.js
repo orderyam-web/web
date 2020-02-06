@@ -15,13 +15,6 @@ class OrderCentralSelection extends Component{
         
     }
     render(){
-        let map1 = new Map();
-        map1.set('Regular', '0');
-        map1.set('Large', '800');
-        let map2 = new Map();
-        map2.set('샷 추가', '800');
-        map2.set('시럽 추가', '500');
-        map2.set('휘핑 추가', '600');
         return(
             <div>
                 <div className={styles.Container} style={{paddingBottom: '30px'}}>

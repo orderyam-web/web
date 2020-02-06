@@ -25,8 +25,12 @@
 .line{
         margin-top:2%;
         margin-left: 10%;
+        margin-right: 10%;
         background-color: #ffffff;
-      
+        border: none;
+        border-top: 3px dotted black;
+        color: #fff;
+        height: 1px;
 }
 .text3{
     font-family: NotoSansCJKkr;
@@ -36,14 +40,12 @@
     font-style: normal;
     line-height: 1.46;
     letter-spacing: normal;
-    margin-left: 45%;
+    text-align: center;
     color: #5c5c5c;
     margin-top:1%;
   }
 
   .number{
-    width: 120px;
-    height: 106.5px;
     font-family: NotoSansCJKkr;
     font-size: 120px;
     font-weight: normal;
@@ -51,10 +53,9 @@
     font-style: normal;
     line-height: 1.48;
     letter-spacing: normal;
-    margin-bottom: 4%;
     margin-top:-1%;
     color: #5c5c5c;
-    margin-left:42.5%;
+    text-align: center;
   }
   .info {
     
