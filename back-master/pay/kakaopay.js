@@ -70,7 +70,7 @@ router.get('/kakaopay/auth', function (req, res) {
 });
 
 router.get('/kakaopay/success', function(req, res){
-    res.send('결제가 완료되었습니다.');
+    res.redirect('http://localhost:3000/receipt')
 });
 
 router.get('/kakaopay/fail', function(req, res){
