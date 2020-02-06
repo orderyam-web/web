@@ -22,9 +22,9 @@ router.get('/kakaopay', function (req, res) {
             vat_amount: 200,
             tax_free_amount: 0,
 
-            approval_url: "http://localhost:3001/kakaopay/auth",
-            fail_url: "http://localhost:3001/kakaopay/fail",
-            cancel_url: "http://localhost:3001/kakaopay/cancel",
+            approval_url: "http://localhost:3000/kakaopay/auth",
+            fail_url: "http://localhost:3000/kakaopay/fail",
+            cancel_url: "http://localhost:3000/kakaopay/cancel",
         },
         headers: {
             'Authorization': 'KakaoAK a1355d29b2de8657244d9548bf1a4ea9',
