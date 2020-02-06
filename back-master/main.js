@@ -6,11 +6,11 @@ var indexRouter = require('./routes/index');
 var kakaopayRouter = require('./pay/kakaopay');
 var inicispayRouter = require('./pay/inicispay');
 
-//app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
-/*app.get('/', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});*/
+});
 
 // inderxRoute로 접근하기 전에 aws 서버로 먼저 연결
 
@@ -20,6 +20,8 @@ var inicispayRouter = require('./pay/inicispay');
 // indexRouter 는 routes/index.js 에서 db 접속 및 db 데이터 불러오는 역할
 
 app.use('/', indexRouter);
+
+app.use(express.static('build'));
 
 app.use(kakaopayRouter);
 
