@@ -1,5 +1,4 @@
 // 서버 접속 시 db 연결하고, db 에서 필요한 데이터 불러온다
-
 var express = require('express');
 var router = express.Router();
 
