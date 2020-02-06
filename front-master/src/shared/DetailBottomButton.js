@@ -15,7 +15,7 @@ export default class DetailBottomButton extends Component{
             <div className={styles.Container}>
                 <div className={styles.LeftButton} onClick={this.props.addOrder}>주문표에 추가</div>
                 <Link to='/order'>
-                    <div className={styles.RightButton}>바로 주문</div>
+                    <div className={styles.RightButton} onClick={this.props.ordernow}>바로 주문</div>
                 </Link>
             </div>
         )

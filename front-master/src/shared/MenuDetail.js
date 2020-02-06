@@ -42,6 +42,7 @@ class MenuDetail extends Component{
     handleClick = () => {
         this.addOrder()
         setTimeout(()=>{this.setState({addedToOrder:false,opacity:1})}, 2000)
+        setTimeout(()=>{this.props.history.push('/');}, 1000)
     }
     addOption = (option) => {
         if (option !== ''){
@@ -89,7 +90,7 @@ class MenuDetail extends Component{
                     <div style={{marginTop:'86px', marginBottom:'179px', opacity:this.state.opacity}}>
                         {/* array of GlobalSelectionMenuItem from above */}
                         <DetailCentralSelection title={menu_id} data={list} description={description} price={this.state.menu.price} count={this.state.menu.count} addOption={this.addOption} delOption={this.delOption} addMenuPrice={this.addMenuPrice} addMenuCount={this.addMenuCount}></DetailCentralSelection>
-                        <DetailBottomButton addOrder={this.handleClick}></DetailBottomButton>
+                        <DetailBottomButton addOrder={this.handleClick} ordernow={this.addOrder}></DetailBottomButton>
                     </div>
                 </div>
                 <div className={checkstyle.backbox} style={this.state.addedToOrder ? {display : 'block'} : {display : 'none'}}>
