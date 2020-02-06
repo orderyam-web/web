@@ -49,7 +49,7 @@ class MenuDetail extends Component{
             this.setState(prevState => ({
                 menu: {                   
                     ...prevState.menu,    
-                    options: this.state.menu.options.concat(option)       
+                    options: prevState.menu.options.concat(option)       
                 }
             }))
         }
@@ -58,7 +58,7 @@ class MenuDetail extends Component{
         this.setState(prevState => ({
             menu: {                   
                 ...prevState.menu,    
-                options: this.state.menu.options.filter(op => op !== option)       
+                options: prevState.menu.options.filter(op => op !== option)       
             }
         }))
     }
@@ -67,7 +67,7 @@ class MenuDetail extends Component{
         this.setState(prevState => ({
             menu: {                   
                 ...prevState.menu,    
-                price : Number(this.state.menu.price) + Number(value)   
+                price : Number(prevState.menu.price) + Number(value)   
             }
         }))
     }
