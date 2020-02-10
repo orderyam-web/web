@@ -5,38 +5,51 @@ var router = express.Router();
 var mysql = require('mysql');
 var dbconfig = require('../db/database');
 var connection = mysql.createConnection(dbconfig);
+var bodyParser = require('body-parser');
+const app = express();
+const url = require('url');
+app.use(bodyParser().json());
 connection.connect();
 
-router.get('/menu', function (req, res) {
-    connection.query('SELECT * FROM cafemenu', function (err, favorite) {
+
+router.get('/', function (req, res) {
+    connection.query('SELECT * FROM cafemenu', function (err, menu) {
         if (err) {
             throw err;
         }
-        res.send(favorite);
+        res.send(menu);
     });
 });
 
-router.post('/payment/:t', function (req, res) {
-    const t = req.params.t;
-    var id = req.body.id;
-    var num = req.body.num;
-    var price = req.body.price;
-    var detail = req.body.detail;
-    if (t === "true") {
-        var insert_sql = "INSERT INTO order_list SET ?";
-        var insert_list = {
-            id: "아메리카노외4잔",
-            num: 4,
-            price: 8000,
-            detail: "없음"
-        };
-        connection.query(insert_sql, insert_list, function (err, order) {
-            if (err) throw err;
-            res.send("query_success");
-        });
-    } else {
-        res.send("nothing");
-    }
+//대공사
+router.post('/payment', function (req, res) {
+    //카카오 페이라면 name, price 를 post로 send
+    //이니페이라면 ..?
+    var orderInfo1 = req.body.dbInfo;
+    var orderInfo2 = req.body.payInfo;
+    //이 안의 정보를 db에 insert 혹은 res.send
+    var items ={ //orderInfo 를 
+        id = "store12345",
+        price ="26000",
+    };
+   var insert_sql = "INSERT INTO order_list SET ?";
+   var insert_list = {
+        //db data here!   
+   }
+   //받은 req.body 중 카카오 결제에 필요한 파라미터만 리다이렉트
+   res.redirect(url.format({
+       pathname : "/kakaopay",
+       query: {
+           "name" : req.body.name,
+           "price": req.body.name
+       }
+   }));
+   connection.query(insert_sql, insert_list, function (err, order) {
+       if (err) throw err;
+       res.send("query_success");
+       res.redirect('/kakaopay');
+   });
+   
 });
 
 // API

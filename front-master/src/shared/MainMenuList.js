@@ -14,6 +14,9 @@ export default class MainMenuList extends Component{
     constructor(props){
         super(props);
         this.state = {
+            // 카테고리명을 포함해서 리퀘주세요
+            //db서버에서 카테고리에 맞는 메뉴와 컴포넌트를 넘겨드리면 
+            //for문으로 추가해주세요
             menu_list : [new GlobalMainMenuItem(
                 {
                     id: 0,
