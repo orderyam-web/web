@@ -3,12 +3,12 @@ var router = express.Router();
 
 
 var AWS = require('aws-sdk');
-// AWS.config.region = 'ap-northeast-2';
+// AWS.config.region = '';
 var awsConfig = ({
-    "accessKeyId": "AKIARBASV2NWAOUCWFPA",
-    "secretAccessKey": "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",
-    "region": "ap-northeast-2",
-    // "endpoint": "http://13.125.193.176:3000",
+    "accessKeyId": "",
+    "secretAccessKey": "",
+    "region": "",
+    // "endpoint": "",
 });
 
 var ec2 = new AWS.EC2(awsConfig);
